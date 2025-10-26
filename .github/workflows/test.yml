@@ -12,6 +12,5 @@ jobs:
         run: |
           gcc -Wall -Wextra -I. main.c task.c -o tests.out
 
-      - name: Run tests
-        run: |
-          ./tests.out
+      - name: Run Tests (limit 3s)
+        run: timeout 3s ./tests.out
