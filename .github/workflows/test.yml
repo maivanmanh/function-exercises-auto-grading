@@ -1,0 +1,17 @@
+name: C Unit Tests
+
+on: [push, pull_request]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compile tests
+        run: |
+          gcc -Wall -Wextra -I. main.c task.c -o tests.out
+
+      - name: Run tests
+        run: |
+          ./tests.out
